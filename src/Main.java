@@ -65,10 +65,11 @@ public class Main {
                     System.out.println(elemento2);
                     
                     Main.criaConexoes(elemento1, elemento2);
-                    
-                }
-            }
 
+                }
+
+            }
+            System.out.println("parada");
 
 
 
@@ -83,14 +84,45 @@ public class Main {
 
     private static void criaConexoes(int elemento1, int elemento2) {
 
+        int _elemento1;
+        if(elemento2 < elemento1){
+            //troca valores
+            _elemento1 = elemento2;
+            elemento2 = elemento1;
+        }else{
+            _elemento1 = elemento1;
+        }
+
         for(int i = 0; i < listas.size(); i++){
 
             //Se a subLista contem o elemento1, adicione o elemento 2
+            if (listas.get(i).contains(_elemento1)){
+                //adicionou o segundo elemento na lista
+                listas.get(i).add(elemento2);
 
-            //Apos isso, apage a lista que tem o numero de indece 0 igual a elemento1
-            if (listas.get(i).contains(elemento1)){
-                
+                //mata as listas abaixo que sejam referentes ao elemento1
+                Main.mataLista(i+1, elemento2 );
+
             }
+
+
+        }
+
+
+    }
+
+    /**
+     * Metodo que elimina listas que tem o identificador que já foi adicionado.
+     *
+     */
+    private static void mataLista(int i, int _elemento1) {
+
+
+
+
+        for (; i < listas.size(); i++){
+
+            if (listas.get(i).get(0) == _elemento1)  listas.remove(i);
 
         }
 
@@ -107,7 +139,10 @@ public class Main {
         //exemplo Recebe 10, cria 10 sublistas
         for (int i = 0; i < quntSubListas; i++ ){
 
-            listas.add(new ArrayList<>(i));
+            ArrayList<Integer> aux = new ArrayList<>(i);
+            aux.add(i);
+
+            listas.add(aux);
 
         }
 
