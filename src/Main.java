@@ -10,9 +10,8 @@ public class Main {
 
     protected   static  int quantFuncionarios;
     protected   static  int quantConexoes;
-    protected   static  int     numeroVertices;
-    protected   static  int[][] conexoes;
-    protected   static  String  saidaPrograma;
+    protected   static  int maiorTamanho;
+
 
     public static List< ArrayList<Integer> > listas = new ArrayList<>();
     public static ArrayList<Integer> listaTamanhos = new ArrayList<>();
@@ -39,30 +38,30 @@ public class Main {
 
             for(int i = 1; (st=br.readLine()) != null; i++){
                 if(i == 1){
-                    System.out.println("lendo a primeira elemento");
+                    //System.out.println("lendo a primeira elemento");
                     quantFuncionarios = new Integer(st.substring(0, st.indexOf(' ')));
-                    System.out.println(quantFuncionarios);
+                    //System.out.println(quantFuncionarios);
 
                     Main.criaSubListas(quantFuncionarios);
 
 
 
-                    System.out.println("lendo a segundo elemento");
+                    //System.out.println("lendo a segundo elemento");
                     quantConexoes = new Integer(st.substring(st.indexOf(' ')+1));
-                    System.out.println(quantConexoes);
+                    //System.out.println(quantConexoes);
 
                 }else{
                     //Lendo conexeões
 
-                    
-                    System.out.println("lendo a primeira conexao");
+
+                    //System.out.println("lendo a primeira conexao");
                     int elemento1 = new Integer(st.substring(0, st.indexOf(' ')));
-                    System.out.println(elemento1);
+                    //System.out.println(elemento1);
 
 
-                    System.out.println("lendo a segunda conexao");
+                    //System.out.println("lendo a segunda conexao");
                     int elemento2 = new Integer(st.substring(st.indexOf(' ')+1));
-                    System.out.println(elemento2);
+                    //System.out.println(elemento2);
                     
                     Main.criaConexoes(elemento1, elemento2);
 
@@ -71,7 +70,7 @@ public class Main {
             }
             Main.geraListaTamanhos();
             System.out.println("Numero de possibilidades: " + resultadoDePosibilidade());
-            System.out.println("Numero de funcionarios do maior grupo: " + );
+            System.out.println("Numero de funcionarios do maior grupo: " + maiorTamanho);
             System.out.println("Numero de grupos existentes: " + listaTamanhos.size());
 
 
@@ -86,8 +85,12 @@ public class Main {
 
     private static void geraListaTamanhos() {
 
+        maiorTamanho = 0;
+        int tamanhoAux = 0;
         for(int i = 0; i < listas.size(); i++){
-            listaTamanhos.add(listas.get(i).size());
+            tamanhoAux = listas.get(i).size();
+            listaTamanhos.add(tamanhoAux);
+            if (tamanhoAux > maiorTamanho) maiorTamanho = tamanhoAux;
         }
 
     }
@@ -108,7 +111,7 @@ public class Main {
             //Se a subLista contem o elemento1, adicione o elemento 2
             if (listas.get(i).contains(_elemento1)){
                 //adicionou o segundo elemento na lista
-                listas.get(i).add(elemento2);
+                if( !listas.get(i).contains(elemento2) ) listas.get(i).add(elemento2);
 
                 //mata as listas abaixo que sejam referentes ao elemento1
                 Main.mataLista(i+1, elemento2 );
