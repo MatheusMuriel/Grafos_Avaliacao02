@@ -51,18 +51,21 @@ public class Main {
                     quantConexoes = new Integer(st.substring(st.indexOf(' ')+1));
                     System.out.println(quantConexoes);
 
-
-
                 }else{
-                    Integer x = 0;
-                    Integer y = 0;
-                    for(int j = 0; j < st.length(); j++){
-                        if (j == 0) x = Integer.parseInt(st.substring(0,1));
-                        if (j == 2) y = Integer.parseInt(st.substring(2,3));
+                    //Lendo conexeões
 
-                    }
+                    
+                    System.out.println("lendo a primeira conexao");
+                    int elemento1 = new Integer(st.substring(0, st.indexOf(' ')));
+                    System.out.println(quantFuncionarios);
 
-                    //leConexoes(x,y);
+
+                    System.out.println("lendo a segunda conexao");
+                    int elemento2 = new Integer(st.substring(st.indexOf(' ')+1));
+                    System.out.println(quantConexoes);
+                    
+                    Main.criaConexoes(elemento1, elemento2);
+                    
                 }
             }
 
@@ -76,6 +79,12 @@ public class Main {
         }
 
 
+    }
+
+    private static void criaConexoes(int elemento1, int elemento2) {
+    }
+
+    private static void fazConexoes(int quantConexoes) {
     }
 
     //guilherme
