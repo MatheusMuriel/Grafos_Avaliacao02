@@ -9,6 +9,7 @@ import java.util.Scanner;
 public class Main {
 
     protected   static  int quantFuncionarios;
+    protected   static  int quantConexoes;
     protected   static  int     numeroVertices;
     protected   static  int[][] conexoes;
     protected   static  String  saidaPrograma;
@@ -38,20 +39,17 @@ public class Main {
             for(int i = 1; (st=br.readLine()) != null; i++){
                 if(i == 1){
                     System.out.println("lendo a primeira elemento");
-                    int agrVai = new Integer(st.substring(0, st.indexOf(' ')));
-                    quantFuncionarios = agrVai;
-                    System.out.println(agrVai);
+                    quantFuncionarios = new Integer(st.substring(0, st.indexOf(' ')));
+                    System.out.println(quantFuncionarios);
 
                     //GUILHERME
                     Main.criaSubListas(quantFuncionarios);
+
+
 
                     System.out.println("lendo a segundo elemento");
-                    int agrVai2 = new Integer(st.substring(st.indexOf(' ')+1));
-                    //quantFuncionarios = agrVai;
-                    System.out.println(agrVai2);
-
-                    //GUILHERME
-                    Main.criaSubListas(quantFuncionarios);
+                    quantConexoes = new Integer(st.substring(st.indexOf(' ')+1));
+                    System.out.println(quantConexoes);
 
 
 
