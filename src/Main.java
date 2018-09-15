@@ -15,6 +15,7 @@ public class Main {
     protected   static  String  saidaPrograma;
 
     public static List< ArrayList<Integer> > listas = new ArrayList<>();
+    public static ArrayList<Integer> listaTamanhos = new ArrayList<>();
     public static Scanner teclado;
 
 
@@ -42,7 +43,6 @@ public class Main {
                     quantFuncionarios = new Integer(st.substring(0, st.indexOf(' ')));
                     System.out.println(quantFuncionarios);
 
-                    //GUILHERME
                     Main.criaSubListas(quantFuncionarios);
 
 
@@ -69,8 +69,10 @@ public class Main {
                 }
 
             }
-            System.out.println("parada");
-
+            Main.geraListaTamanhos();
+            System.out.println("Numero de possibilidades: " + resultadoDePosibilidade());
+            System.out.println("Numero de funcionarios do maior grupo: " + );
+            System.out.println("Numero de grupos existentes: " + listaTamanhos.size());
 
 
         }catch (java.io.FileNotFoundException e){
@@ -79,6 +81,14 @@ public class Main {
             e.printStackTrace();
         }
 
+
+    }
+
+    private static void geraListaTamanhos() {
+
+        for(int i = 0; i < listas.size(); i++){
+            listaTamanhos.add(listas.get(i).size());
+        }
 
     }
 
@@ -146,6 +156,26 @@ public class Main {
 
         }
 
+    }
+
+    private static int resultadoDePosibilidade (){
+
+        int somador = 0;
+        int resultadoDaMult = 0;
+        int exececao = 0;
+        for(int i = 0; i< listaTamanhos.size()-1; i++){
+            if(listaTamanhos.get(i)== 1){
+                exececao = listaTamanhos.size()-1 -i;
+                for(int k = exececao; k<=1; k++){
+                    somador += k;
+                }
+            }
+            for(int j= 1; j< listaTamanhos.size()-1; j++){
+                resultadoDaMult = listaTamanhos.get(i) * listaTamanhos.get(j);
+                somador += resultadoDaMult;
+            }
+        }
+        return somador;
     }
 
 }
