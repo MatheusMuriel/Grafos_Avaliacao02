@@ -82,15 +82,34 @@ public class Main {
     }
 
     private static void criaConexoes(int elemento1, int elemento2) {
+
+        for(int i = 0; i < listas.size(); i++){
+
+            //Se a subLista contem o elemento1, adicione o elemento 2
+
+            //Apos isso, apage a lista que tem o numero de indece 0 igual a elemento1
+            if (listas.get(i).contains(elemento1)){
+                
+            }
+
+        }
+
+
     }
 
     private static void fazConexoes(int quantConexoes) {
+
+
     }
 
     //guilherme
-    private static void criaSubListas(int quantFuncionarios) {
+    private static void criaSubListas(int quntSubListas) {
+        //exemplo Recebe 10, cria 10 sublistas
+        for (int i = 0; i < quntSubListas; i++ ){
 
+            listas.add(new ArrayList<>(i));
 
+        }
 
     }
 
