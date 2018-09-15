@@ -57,12 +57,12 @@ public class Main {
                     
                     System.out.println("lendo a primeira conexao");
                     int elemento1 = new Integer(st.substring(0, st.indexOf(' ')));
-                    System.out.println(quantFuncionarios);
+                    System.out.println(elemento1);
 
 
                     System.out.println("lendo a segunda conexao");
                     int elemento2 = new Integer(st.substring(st.indexOf(' ')+1));
-                    System.out.println(quantConexoes);
+                    System.out.println(elemento2);
                     
                     Main.criaConexoes(elemento1, elemento2);
                     
