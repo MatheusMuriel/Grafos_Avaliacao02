@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class Main {
 
-    protected   static  int     tamanho;
+    protected   static  int quantFuncionarios;
     protected   static  int     numeroVertices;
     protected   static  int[][] conexoes;
     protected   static  String  saidaPrograma;
@@ -25,7 +25,7 @@ public class Main {
         File arquivoEntrada = new File("input.txt");
         ReadFile(arquivoEntrada);
 
-        
+
 
     }
 
@@ -35,11 +35,54 @@ public class Main {
             String st;
 
 
+            for(int i = 1; (st=br.readLine()) != null; i++){
+                if(i == 1){
+                    System.out.println("lendo a primeira elemento");
+                    int agrVai = new Integer(st.substring(0, st.indexOf(' ')));
+                    quantFuncionarios = agrVai;
+                    System.out.println(agrVai);
+
+                    //GUILHERME
+                    Main.criaSubListas(quantFuncionarios);
+
+                    System.out.println("lendo a segundo elemento");
+                    int agrVai2 = new Integer(st.substring(st.indexOf(' ')+1));
+                    //quantFuncionarios = agrVai;
+                    System.out.println(agrVai2);
+
+                    //GUILHERME
+                    Main.criaSubListas(quantFuncionarios);
+
+
+
+                }else{
+                    Integer x = 0;
+                    Integer y = 0;
+                    for(int j = 0; j < st.length(); j++){
+                        if (j == 0) x = Integer.parseInt(st.substring(0,1));
+                        if (j == 2) y = Integer.parseInt(st.substring(2,3));
+
+                    }
+
+                    //leConexoes(x,y);
+                }
+            }
+
+
 
 
         }catch (java.io.FileNotFoundException e){
             System.out.println("Erro na leitura do arquivo: " + e.getMessage());
+        } catch (IOException e) {
+            e.printStackTrace();
         }
+
+
+    }
+
+    //guilherme
+    private static void criaSubListas(int quantFuncionarios) {
+
 
 
     }
