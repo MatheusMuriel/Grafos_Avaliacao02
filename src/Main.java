@@ -14,6 +14,7 @@ public class Main {
     protected   static  String  saidaPrograma;
 
     public static List< ArrayList<Integer> > listas = new ArrayList<>();
+    public static Scanner teclado;
 
 
     public static void main(String[] args) {
